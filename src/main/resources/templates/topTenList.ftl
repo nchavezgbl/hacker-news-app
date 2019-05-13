@@ -1,11 +1,8 @@
-<#import "/spring.ftl" as spring/>
-
+<!DOCTYPE html>
 <html>
    <head>
-      <title>Person List</title>
-      <link rel="stylesheet"
-           type="text/css"
-           href="<@spring.url '/css/style.css'/>"/>
+      <title>Top Ten Story List</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
    </head>
    <body>
      <h3>Top Ten Hacker News</h3>
@@ -14,15 +11,13 @@
 
          <table border="1">
             <tr>
-               <th>ID</th>
                <th>Title</th>
-               <th>Link</th>
+               <th>URL</th>
             </tr>
-            <#list topTenStories as story>
+            <#list topTenList as story>
             <tr>
-               <td>${story.id}</td>
                <td>${story.title}</td>
-               <td>${story.url}</td>
+               <td><a href="${story.url}">${story.url}</a></td>
             </tr>
             </#list>
          </table>
