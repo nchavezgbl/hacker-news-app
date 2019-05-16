@@ -19,8 +19,8 @@ public class StoryApi {
   private final RestTemplate restTemplate = new RestTemplate();
 
 
-  public StoryApi(StoryRepository timeEntriesRepo ) {
-    this.storyRepository = timeEntriesRepo;
+  public StoryApi(StoryRepository storyRepository ) {
+    this.storyRepository = storyRepository;
   }
 
   private void getStories() throws IOException{
