@@ -21,7 +21,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/news")
+@RequestMapping("/new")
 public class NewsController {
     @Autowired
     RestTemplate restTemplate;
