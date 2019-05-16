@@ -32,7 +32,14 @@ public class NewsController {
 
     @GetMapping("/topTenList")
     public String getTopStory(Model model) {
-        model.addAttribute("topTenList", storyRepository.list());
+        List<Story> topTenList=new ArrayList<Story>();
+        try {
+            topTenList = new StoryApi().getStories();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       // model.addAttribute("topTenList", storyRepository.list());
+        model.addAttribute("topTenList", topTenList);
         return "topTenList";
     }
 

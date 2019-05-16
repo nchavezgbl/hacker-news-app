@@ -13,15 +13,15 @@ public class InMemoryStoryRepository implements StoryRepository {
   @Override
   public Story create(Story story){
     Story newStory = new Story(story.getId(), story.getTitle(),story.getUrl());
-    storyList.add(newStory);
+    this.storyList.add(newStory);
     return newStory;
   }
   @Override
   public List<Story> list() {
-    return storyList;
+    return this.storyList;
   }
   @Override
   public void deleteAll(){
-    storyList.clear();
+    this.storyList.clear();
   }
 }
