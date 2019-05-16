@@ -30,5 +30,5 @@ dependencies {
     compile("org.freemarker:freemarker:2.3.14")
     compile("org.json:json:20180813")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
-    compile("org.springframework.boot:spring-boot-starter-freemarker:1.1.7.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-freemarker:$springBootVersion")
 }

@@ -15,4 +15,8 @@ public class Application {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
+    @Bean
+    StoryRepository timeEntryRepository() {
+        return new InMemoryStoryRepository();
+    }
 }

@@ -11,13 +11,13 @@
 
          <table border="1">
             <tr>
+               <th>Rank</th>
                <th>Title</th>
-               <th>URL</th>
             </tr>
             <#list topTenList as story>
             <tr>
-               <td>${story.title}</td>
-               <td><a href="${story.url}">${story.url}</a></td>
+               <td>${story?counter}</td>
+               <td><a href="${story.url}">${story.title}</a></td>
             </tr>
             </#list>
          </table>
