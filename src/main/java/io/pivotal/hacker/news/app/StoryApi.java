@@ -3,6 +3,7 @@ package io.pivotal.hacker.news.app;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,14 +27,14 @@ public class StoryApi {
 //  }
 
   public List<Story> getStories() throws IOException{
+
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     HttpEntity<String> entity = new HttpEntity<String>(headers);
 
     String jsonStr = restTemplate.exchange("https://hacker-news.firebaseio.com/v0/topstories.json", HttpMethod.GET, entity, String.class).getBody();
     JSONArray allStories = new JSONArray(jsonStr);
-    storyList.clear();
-   // storyRepository.deleteAll();
+    storyRepository.deleteAll();
     for(int i=0; i <10 ; i++){
       ObjectMapper objectMapper = new ObjectMapper();
 
@@ -51,11 +52,10 @@ public class StoryApi {
       }else{
         story.setUrl(urlNode.asText());
       }
-     // storyRepository.create(story);
+      storyRepository.add(story);
       storyList.add(story);
-
     }
-    return storyList;
+    return this.storyList;
   }
 
   private String getJsonStory(String id){
@@ -67,4 +67,5 @@ public class StoryApi {
     String jsonStr = restTemplate.exchange(url, HttpMethod.GET, entity, String.class).getBody();
     return jsonStr;
   }
+
 }

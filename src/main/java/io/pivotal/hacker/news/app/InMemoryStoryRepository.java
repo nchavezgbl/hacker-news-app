@@ -11,7 +11,7 @@ public class InMemoryStoryRepository implements StoryRepository {
   }
 
   @Override
-  public Story create(Story story){
+  public Story add(Story story){
     Story newStory = new Story(story.getId(), story.getTitle(),story.getUrl());
     this.storyList.add(newStory);
     return newStory;
